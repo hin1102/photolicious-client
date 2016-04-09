@@ -42,6 +42,13 @@
                 controller: "HomeCtrl",
                 resolve: load('views/home/home.ctrl.js')
             })
+            .state('public.photo-details', {
+                url: '/photo-details',
+                templateUrl: 'views/photo-details/photo-details.html',
+                data : { title: '' },
+                controller: "PhotoDetailsCtrl",
+                resolve: load('views/photo-details/photo-details.ctrl.js')
+            })
             .state('public.login', {
                 url: '/login/:type',
                 templateUrl: 'views/login/login.html',
