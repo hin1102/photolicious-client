@@ -12,9 +12,9 @@
         .module('app')
         .controller('AppCtrl', AppCtrl);
 
-    AppCtrl.$inject  = ['$scope', '$localStorage', '$location', '$rootScope', '$anchorScroll', '$timeout', '$window', 'apiService'];
+    AppCtrl.$inject  = ['$scope', '$localStorage', '$location', '$rootScope', '$anchorScroll', '$timeout', '$window', 'apiService', 'forecastApiService'];
 
-    function AppCtrl($scope, $localStorage, $location, $rootScope, $anchorScroll, $timeout, $window, apiService) {
+    function AppCtrl($scope, $localStorage, $location, $rootScope, $anchorScroll, $timeout, $window, apiService, forecastApiService) {
         var vm = $scope;
 
         vm.isIE = isIE();

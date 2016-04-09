@@ -5,13 +5,12 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['$scope', '$log', '$window', '$rootScope', 'dictionary', 'apiService', 'NgMap', 'CONST'];
+    HomeCtrl.$inject = ['$scope', '$log', '$window', '$rootScope', 'dictionary', 'apiService', 'forecastApiService', 'CONST'];
 
     /* @ngInject */
-    function HomeCtrl($scope, $log, $window, $rootScope, dictionary, apiService, NgMap, CONST) {
+    function HomeCtrl($scope, $log, $window, $rootScope, dictionary, apiService, forecastApiService, CONST) {
         var vm = this;
         vm.dict = dictionary();
-	    vm.getNearbyMedias = getNearbyMedias;
 
 	    activate();
 
@@ -21,19 +20,26 @@
             $log.info("HomeCtrl is mounted");
 
 	        initMap();
+
+	        getForecast();
         }
 
 	    //map
 
 	    function initMap() {
-		    NgMap.getMap().then(function(map) {
-			    console.log(map.getCenter());
-			    console.log('markers', map.markers);
-			    console.log('shapes', map.shapes);
+		    var map = new google.maps.Map(document.getElementById('map'), {
+			    zoom: 11,
+			    center: {lat: 41.876, lng: -87.624}
 		    });
 	    }
 
-        function getMostViewedMedia(categoryKey) {
+	    function getForecast() {
+		    forecastApiService.getForecast(41.876, -87.624).success(function(res) {
+			    console.log(res);
+		    });
+	    }
+
+        function getNearbyMedias(categoryKey) {
 	        apiService.getMostViewedMedia(categoryKey, 24 * 7, 0, 16).success(function(res){
 	            vm.mostViewedMedia = shuffle(res.data.slice(0, 7));
             });
