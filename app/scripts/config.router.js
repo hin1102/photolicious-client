@@ -49,81 +49,88 @@
                 controller: "PhotoDetailsCtrl",
                 resolve: load('views/photo-details/photo-details.ctrl.js')
             })
-            .state('public.login', {
-                url: '/login/:type',
-                templateUrl: 'views/login/login.html',
-                data : { title: '' },
-                controller: "LoginCtrl",
-                resolve: load('views/login/login.ctrl.js')
-            })
-            .state('public.shop', {
-                url: '/shop/:shopName',
-                params: { shopName: '' },
-                templateUrl: 'views/shop/shop.html',
-                controller: 'ShopCtrl',
-                resolve: load('views/shop/shop.ctrl.js')
-            })
-            .state('public.media', {
-                url: '/media/:mediaId',
-                params: { mediaId: '' },
-                templateUrl: 'views/media/media.html',
-                controller: 'MediaCtrl',
-                resolve: load(['angularFileUpload','views/media/media.ctrl.js'])
-            })
-            .state('public.search', {
-                url: '/search/:text',
-                params: { text: ''},
-                templateUrl: 'views/search/search.html',
-                controller: 'SearchCtrl',
-                resolve: load(['views/search/search.ctrl.js'])
-            })
-            .state('private', {
-                abstract: true,
-                data: {
-                    requiredLogin: true
-                },
-                views: {
-                    '': {
-                        templateUrl: 'views/layout.html'
-                    }
-                }
-            }).state('private.profileUser', {
-                url: '/profile/user',
-                templateUrl: 'views/profile/profile-user.html',
-                data : { title: '' },
-                controller: "ProfileUserCtrl",
-                resolve: load('views/profile/profile-user.ctrl.js')
-            })
-
-            .state('private.profileShop', {
-                url: '/profile/shop',
-                templateUrl: 'views/profile/profile-shop.html',
-                data : { title: '' },
-                controller: "ProfileShopCtrl",
-                resolve: load('views/profile/profile-shop.ctrl.js')
-            })
-            .state('private.bookmark', {
-                url: '/bookmark',
-                templateUrl: 'views/bookmark/bookmark.html',
-                controller: 'BookmarkCtrl',
-                resolve: load('views/bookmark/bookmark.ctrl.js')
-            })
-            .state('private.subscription', {
-                url: '/subscription',
-                templateUrl: 'views/subscription/subscription.html',
-                controller: 'SubscriptionCtrl',
-                resolve: load('views/subscription/subscription.ctrl.js')
-            })
-            .state('private.chat', {
-                url: '/chat',
-                params: {
-                    buddyUsername: null,
-                    mediaId: null
-                },
-                templateUrl: 'views/chat/chat.html',
-                controller: 'ChatCtrl',
-                resolve: load(['angularFileUpload','views/chat/chat.ctrl.js'])
-            })
+	        .state('public.photo-details2', {
+		        url: '/photo-details2',
+		        templateUrl: 'views/photo-details2/photo-details.html',
+		        data : { title: '' },
+		        controller: "PhotoDetailsCtrl2",
+		        resolve: load('views/photo-details2/photo-details.ctrl.js')
+	        })
+            // .state('public.login', {
+            //     url: '/login/:type',
+            //     templateUrl: 'views/login/login.html',
+            //     data : { title: '' },
+            //     controller: "LoginCtrl",
+            //     resolve: load('views/login/login.ctrl.js')
+            // })
+            // .state('public.shop', {
+            //     url: '/shop/:shopName',
+            //     params: { shopName: '' },
+            //     templateUrl: 'views/shop/shop.html',
+            //     controller: 'ShopCtrl',
+            //     resolve: load('views/shop/shop.ctrl.js')
+            // })
+            // .state('public.media', {
+            //     url: '/media/:mediaId',
+            //     params: { mediaId: '' },
+            //     templateUrl: 'views/media/media.html',
+            //     controller: 'MediaCtrl',
+            //     resolve: load(['angularFileUpload','views/media/media.ctrl.js'])
+            // })
+            // .state('public.search', {
+            //     url: '/search/:text',
+            //     params: { text: ''},
+            //     templateUrl: 'views/search/search.html',
+            //     controller: 'SearchCtrl',
+            //     resolve: load(['views/search/search.ctrl.js'])
+            // })
+            // .state('private', {
+            //     abstract: true,
+            //     data: {
+            //         requiredLogin: true
+            //     },
+            //     views: {
+            //         '': {
+            //             templateUrl: 'views/layout.html'
+            //         }
+            //     }
+            // }).state('private.profileUser', {
+            //     url: '/profile/user',
+            //     templateUrl: 'views/profile/profile-user.html',
+            //     data : { title: '' },
+            //     controller: "ProfileUserCtrl",
+            //     resolve: load('views/profile/profile-user.ctrl.js')
+            // })
+            //
+            // .state('private.profileShop', {
+            //     url: '/profile/shop',
+            //     templateUrl: 'views/profile/profile-shop.html',
+            //     data : { title: '' },
+            //     controller: "ProfileShopCtrl",
+            //     resolve: load('views/profile/profile-shop.ctrl.js')
+            // })
+            // .state('private.bookmark', {
+            //     url: '/bookmark',
+            //     templateUrl: 'views/bookmark/bookmark.html',
+            //     controller: 'BookmarkCtrl',
+            //     resolve: load('views/bookmark/bookmark.ctrl.js')
+            // })
+            // .state('private.subscription', {
+            //     url: '/subscription',
+            //     templateUrl: 'views/subscription/subscription.html',
+            //     controller: 'SubscriptionCtrl',
+            //     resolve: load('views/subscription/subscription.ctrl.js')
+            // })
+            // .state('private.chat', {
+            //     url: '/chat',
+            //     params: {
+            //         buddyUsername: null,
+            //         mediaId: null
+            //     },
+            //     templateUrl: 'views/chat/chat.html',
+            //     controller: 'ChatCtrl',
+            //     resolve: load(['angularFileUpload','views/chat/chat.ctrl.js'])
+            // })
             ;
 
 
