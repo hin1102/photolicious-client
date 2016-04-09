@@ -12,7 +12,7 @@
         var vm = this;
         vm.dict = dictionary();
 	    vm.getMostViewedMedia = getMostViewedMedia;
-
+		
 	    activate();
 
         ////////////////
