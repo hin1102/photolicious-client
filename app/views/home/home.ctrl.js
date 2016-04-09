@@ -20,8 +20,17 @@
         function activate() {
             $log.info("HomeCtrl is mounted");
 
-	        // getMostViewedMedia();
+	        initMap();
         }
+
+	    var map;
+	    function initMap() {
+		    map = new google.maps.Map(document.getElementById('map'), {
+			    center: {lat: -34.397, lng: 150.644},
+			    zoom: 8
+		    });
+	    }
+
         function getMostViewedMedia(categoryKey) {
 	        apiService.getMostViewedMedia(categoryKey, 24 * 7, 0, 16).success(function(res){
 	            vm.mostViewedMedia = shuffle(res.data.slice(0, 7));
