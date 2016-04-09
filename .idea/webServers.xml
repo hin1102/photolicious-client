@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1fd23705-06d7-4b8e-b3e8-1f347b1a0a0c" name="droplet-ny_public" url="http://162.243.226.35">
+        <fileTransfer host="162.243.226.35" port="22" rootFolder="/root/_public" accessType="SFTP" password="dfc8dfc6dfcbdfc4dfcedfc5dfd8dfc3" username="root">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
