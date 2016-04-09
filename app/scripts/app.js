@@ -17,6 +17,7 @@
 	      'mgcrea.ngStrap',
 	      'oc.lazyLoad',
 	      'angular-jwt',
-	      'luegg.directives'
+	      'luegg.directives',
+	      'ngMap'
       ])
 })();

@@ -5,13 +5,13 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['$scope', '$log', '$window', '$rootScope', 'dictionary', 'apiService', 'NgMap', 'CONST'];
+    HomeCtrl.$inject = ['$scope', '$log', '$window', '$rootScope', 'dictionary', 'apiService', 'CONST'];
 
     /* @ngInject */
-    function HomeCtrl($scope, $log, $window, $rootScope, dictionary, apiService, NgMap, CONST) {
+    function HomeCtrl($scope, $log, $window, $rootScope, dictionary, apiService, CONST) {
         var vm = this;
         vm.dict = dictionary();
-	    vm.getNearbyMedias = getNearbyMedias;
+	    vm.getMostViewedMedia = getMostViewedMedia;
 
 	    activate();
 
@@ -23,13 +23,12 @@
 	        initMap();
         }
 
-	    //map
-
 	    function initMap() {
-		    NgMap.getMap().then(function(map) {
-			    console.log(map.getCenter());
-			    console.log('markers', map.markers);
-			    console.log('shapes', map.shapes);
+		    // Create a map object and specify the DOM element for display.
+		    var map = new google.maps.Map(document.getElementById('map'), {
+			    center: {lat: -34.397, lng: 150.644},
+			    scrollwheel: false,
+			    zoom: 8
 		    });
 	    }
 

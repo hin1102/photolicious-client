@@ -1,0 +1,51 @@
+<nav-bar></nav-bar>
+<div class="app-body-inner ng-scope"  style="padding-top:64px; overflow: hidden" ng-controller="HomeCtrl as vm">
+    <div class="row-col row-col-xs b-b">
+        <!-- Chat List -->
+        <div class="col-md-2 white bg b-r">
+            <div class="box row-col">
+                <div class="box-header b-b">
+                    <div class="input-group">
+                        <span class="input-group-addon no-border no-bg"><i class="fa fa-search"></i></span>
+                        <input type="text" ng-model="vm.chatsSearchText" class="form-control no-border no-bg" placeholder="Search all contacts">
+                    </div>
+                </div>
+                <div class="row-row">
+                    <div class="row-body scrollable hover">
+                        <div class="row-inner">
+                            <div class="list inset">
+                                <a class="list-item pointer"
+                                   ng-class="{'bg-faded': c.buddy.username == vm.buddy.username}"
+                                   ng-repeat="c in vm.chats | filter:vm.chatsSearchText"
+                                   ng-click="vm.switchBuddy(c.buddy)">
+                                    <div class="list-left">
+                                    <span class="w-40 avatar">
+                                        <img ng-src="/img/{{ c.buddy.picture_name }}" class="img-circle">
+                                        <i class="on b-white bottom" ng-show="c.last_message.read"></i>
+                                    </span>
+                                    </div>
+                                    <div class="list-body">
+                                        {{ c.buddy.username }}
+                                        <small class="block">
+                                            <span ng-if="c.last_message.sender == 'user'">me:</span>
+                                            {{ c.last_message.content }}
+                                        </small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Chats List -->
+
+        <!-- Chat room -->
+        <div class="col-md-6">
+            <div id="map">
+
+            </div>
+        </div>
+        <!-- /column -->
+    </div>
+</div>
