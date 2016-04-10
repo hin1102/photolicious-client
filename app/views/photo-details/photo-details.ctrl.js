@@ -27,6 +27,22 @@
 	            vm.mostViewedMedia = shuffle(res.data.slice(0, 7));
             });
         }
+
+		function Ctrl($scope) {
+			var hasLiked = false;
+			$scope.likeClick = function () {
+				if (!hasLiked) {
+					hasLiked = true;
+					$scope.liked = 'Unlike';
+					$scope.likeCount += 1;
+				} else {
+					hasLiked = false;
+					$scope.liked = 'Like';
+					$scope.likeCount -= 1;
+				}
+			}}
+
+
 	    function shuffle(array) {
 		    var currentIndex = array.length, temporaryValue, randomIndex;
 		    while (0 !== currentIndex) {

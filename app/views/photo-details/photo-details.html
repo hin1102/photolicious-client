@@ -1,17 +1,122 @@
-<div ng-controller="PhotoDetailsCtrl as vm">
+<div ng-controller="PhotoDetailsCtrl2 as vm">
     <nav-bar delegate="vm"></nav-bar>
     <div class="container" style="padding-top: 72px">
+
         <div class="row">
-           <div class="col-md-4 ">
-               4
-           </div>
-            <div class="col-md-4 col-md-offset-5">
-                <style>
-                    <div class="box-header"><h3>Box Header</h3><small>Sub title goes here with small font</small></div>
-                </style>
-            </div>
-            <div class="col-md-4 col-md-offset-5">
-                4
+            <div class="row" style="padding: 12px">
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                        <!--media card -->
+                        <div class="col-sm-12 col-md-7">
+                            <h3>
+                                Photo
+                            </h3>
+                            <div class="box">
+                                <img src="http://www.electrummagazine.com/wp-content/uploads/2012/07/milky-way_7-14-12.jpg" class="w-full img-responsive" style="position:absolute;">
+
+                                <div class="p-a">
+                                   <div class="text-muted m-b-xs">
+                                   </div>
+                                   <p ng-bind-html="vm.media.caption | caption"></p>
+
+                               </div>
+                           </div>
+                       </div>
+
+
+                       <!--/ media card-->
+
+                        <div class="col-sm-12 col-md-5">
+
+                            <!--shop card-->
+                            <div class="row" style="padding: 0 12px 0 12px">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3>Details </h3>
+                                        <body ng-app ng-controller="Ctrl">
+                                      <!--  <a ng-click="likeClick()" ng-init="liked='Like'; likeCount=0">
+                                            {{liked}} {{likeCount}}
+                                        </a>-->
+                                        </body>
+                                        <ul>
+                                            <li>F-stop</li>
+                                            <li>Exposure time</li>
+                                            <li>ISO speed</li>
+                                            <li>Exposure bias</li>
+                                            <li>Focal length</li>
+                                            <li>Max aperture</li>
+                                        </ul>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="streamline m-b m-l">
+                                            <!-- reviews -->
+
+                                            <div class="sl-item" ng-repeat="r in vm.reviews">
+                                                <div class="sl-left">
+                                                    <!--TODO: user profile picture-->
+                                                    <img ng-src="{{ r.user.profile_picture_url }}" class="img-circle">
+                                                </div>
+                                                <div class="sl-content">
+                                                    <div class="sl-date text-muted">{{ r.created_time | date: 'medium'}}</div>
+                                                    <div class="sl-author">
+                                                        <a href class="text-info">@{{ r.user.username}}</a>
+                                                    </div>
+                                                    <div>
+                                                        <p>{{ r.content }}</p>
+                                                        <p ng-repeat="img in r.image_urls">
+				                      <span class="inline p-a-xs b dark-white">
+				                        <img ng-src="{{ img }}" class="img-responsive">
+				                      </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/ reviews-->
+                                            <!-- review box-->
+                                            <div class="box m-a-0 b-a" ng-if="vm.showMediaActions()">
+                                                <form>
+                                                    <textarea class="form-control no-border" rows="3" ng-model="vm.reviewContent" placeholder="Type something..."></textarea>
+                                                </form>
+                                                <div class="box-footer clearfix">
+                                                    <ul class="nav nav-pills nav-sm">
+                                                        <li class="nav-item"><a href class="nav-link" data-toggle="collapse" data-target="#dropzone"><i class="fa fa-camera text-muted"></i></a></li>
+                                                    </ul>
+                                                    <div id="dropzone" class="collapse padding m-b-md">
+                                                        <file-uploader delegate="vm"></file-uploader>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/ review box-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="box-header">
+
+                                        <div>
+                                            <div id="dv1">
+                                                <form ng-controller="FrmController" class="ng-scope ng-pristine ng-valid">
+                                                    Post your Comment
+
+                                                    <textarea ng-model="txtcomment" placeholder="Your Comment" style="width:350px" class="ng-pristine ng-valid"></textarea>
+                                                    <button ng-click="btn_add();" style="margin-top:10px;">Post Comment</button>
+
+                                                    <h4>Comments</h4>
+                                                    <ul>
+                                                        <!-- ngRepeat: comnt in comment -->
+                                                    </ul>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
