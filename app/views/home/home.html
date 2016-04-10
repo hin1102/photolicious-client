@@ -1,16 +1,18 @@
 <nav-bar></nav-bar>
 <div class="app-body-inner ng-scope"  style="padding-top:64px; overflow: hidden" ng-controller="HomeCtrl as vm">
     <div class="row-col row-col-xs b-b">
-        <!-- Chat List -->
+
         <div class="col-md-2 white bg b-r">
-
+            <media-card ng-repeat="media in medias"></media-card>
         </div>
-        <!-- /Chats List -->
 
-        <!-- Chat room -->
-        <div class="col-md-6" id="map">
+        <div class="col-md-10" id="map"></div>
 
-        </div>
+        <!--<ng-map class="col-md-12" center="[41.875696,-87.624207]">-->
+            <!--<kml-layer url="http://162.243.226.35/maps/north_us.kml">-->
+            <!--</kml-layer>-->
+        <!--</ng-map>-->
+
 
     </div>
 </div>
